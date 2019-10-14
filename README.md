@@ -67,13 +67,33 @@ export class YourAppComponent {}
 
 ```
 
-After that, you can use the `featureToggle` components in your templates, passing the configuration data into the component itself.
+After that, you can use the `ngx-skeleton-loader` components in your templates, passing the configuration data into the component itself.
 
 - `ngx-skeleton-loader`: Handle the skeleton animation and the skeleton styles of your app;
 
 ```html
 <div class="item"><ngx-skeleton-loader count="5" appearance="circle"> </ngx-skeleton-loader></div>
 ```
+
+### Generating multiple skeletons
+
+You can use, in combination of `count` attribute, multiple appearances and themes on a single element. Theme and appearance will be applied depending on each generated loader, depending on index.
+
+```html
+<div class="item">
+  <ngx-skeleton-loader
+    count="3"
+    [appearance]="['circle', '', '']"
+    [theme]="[
+      { width: '20px' },
+      { width: '60%' },
+      { width: '70%' }
+    ]"
+  >
+  </ngx-skeleton-loader>
+</div>
+```
+*Note*: in case insufficient number of `appearance`/`theme` is provided compared to comply with `count` value, the library will use the first array values of `appearance` and `theme` to style the loader.
 
 ## Development
 
